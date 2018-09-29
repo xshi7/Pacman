@@ -1,0 +1,61 @@
+README Pacman
+
+HANDIN:
+This is my final handin for Pacman!
+
+Design Choices:
+I wrote my Pacman with the following classes: App, PaneOrganizer, Game, Ghost, Pacman, Square, Dot, Energizer, Constants
+and interface Collidable.
+
+App has the methods start and main to make sure that the game is properly started and carried out. Top-level object
+is instantiated.
+
+PaneOrganizer has the constructor, getRoot and the private class QuitHandler.
+PaneOrganizer creates the root BorderPane and a pane that contains a quit button.
+
+Game models the game behaviors.
+It is assciated with PaneOrganizer. It set up labels that records the score, lives and status of the game.
+The method setUpMap sets up the original map.
+The class includes a timeline that models ghosts' movement in different modes, Pacman's movement as well as what happens
+ when pacman collides with different objects in a square.
+Method GameOver ends the game when there are no lives left.
+Method GameWon stops the game when their are no dots and energizers left.
+Method movePacman moves Pacman differently according to different directions.
+Method collide makes pacman collide with elements inside of a smart square.
+Method chase moves ghosts according to bfs with target relative to pacman.
+Method scatter moves ghosts according to bfs with specific set target.
+This class includes a separate timeHandler for ghost pen.
+It uses a queue to logically model the pen and release ghost every seven seconds.
+This class also includes a KeyHandler that changes pacman's direction according to different inputs.
+
+Ghost models ghost behaviors. It is associated with Game.
+Method collide models what happens when Pacman collides with ghost. In scatter and frightened mode, lives decrease, Pacman
+and ghosts' locations are reset.
+Method move moves the ghost both logically and graphically according to a given direction
+Method canMoveUp, canMoveDown, canMoveLeft and canMoveRight checks validity of the moves.
+Method bfs is Breadth-First Search method allows the ghost to chase a target.
+If there is only one direction to go, ghost goes that direction.
+Otherwise a queue is made to examine the whole map and find the direction to turn now according to the records
+of the square with the minimum distance.
+Method frighten models the ghost's behavior when it is frightened, which is randomly within the valid directions
+
+Pacman models the Pacman and all his behaviors.
+It contains moveLeft, moveRight, moveUp and moveDown methods as well as canMoveUp, canMoveLeft, canMoveDown and canMoveRight
+to check the validity of moves.
+
+Square models a smart square class that keeps track of the elements inside of a particular square.
+It graphically make the squares of the map and stores a collidables arrayList for each square.
+
+Dot models a dot. It is associated with Game class.
+It specifies the score of each dot and remove the dot in the collide method.
+
+Energizer models an energizer. It is associate with Game class.
+In collide method, the energizer is graphically removed and frightened mode begins.
+
+Constants stores the constants needed for the program.
+
+Collidable interface include a getScore method and a collide method.
+Dots, energizers and ghosts implement this interface.
+
+KNOWN BUGS:
+None
