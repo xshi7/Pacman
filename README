@@ -1,9 +1,5 @@
 README Pacman
 
-HANDIN:
-This is my final handin for Pacman!
-
-Design Choices:
 I wrote my Pacman with the following classes: App, PaneOrganizer, Game, Ghost, Pacman, Square, Dot, Energizer, Constants
 and interface Collidable.
 
@@ -56,6 +52,3 @@ Constants stores the constants needed for the program.
 
 Collidable interface include a getScore method and a collide method.
 Dots, energizers and ghosts implement this interface.
-
-KNOWN BUGS:
-None
